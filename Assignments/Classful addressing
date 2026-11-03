@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b, c, d;
+
+    cout << "Enter the number of A: ";
+    cin >> a;
+
+    cout << "Enter the number of B: ";
+    cin >> b;
+
+    cout << "Enter the number of C: ";
+    cin >> c;
+
+    cout << "Enter the number of D: ";
+    cin >> d;
+
+    cout << "\nIP Address: "
+         << a << "." << b << "." << c << "." << d << endl;
+
+    if (a < 0 || a > 255 ||
+        b < 0 || b > 255 ||
+        c < 0 || c > 255 ||
+        d < 0 || d > 255)
+    {
+        cout << "Invalid IP Address";
+    }
+
+    else if (a >= 1 && a <= 126)
+    {
+        cout << "\nClass A" << endl;
+        cout << "Range: 1-126" << endl;
+        cout << "Network Mask: 255.0.0.0" << endl;
+        cout << "Number of Addresses: 16777216" << endl;
+        cout << "First Address: " << a << ".0.0.0" << endl;
+        cout << "Last Address: " << a << ".255.255.255" << endl;
+    }
+
+    else if (a >= 128 && a <= 191)
+    {
+        cout << "\nClass B" << endl;
+        cout << "Range: 128-191" << endl;
+        cout << "Network Mask: 255.255.0.0" << endl;
+        cout << "Number of Addresses: 65536" << endl;
+        cout << "First Address: " << a << "." << b << ".0.0" << endl;
+        cout << "Last Address: " << a << "." << b << ".255.255" << endl;
+    }
+
+    else if (a >= 192 && a <= 223)
+    {
+        cout << "\nClass C" << endl;
+        cout << "Range: 192-223" << endl;
+        cout << "Network Mask: 255.255.255.0" << endl;
+        cout << "Number of Addresses: 256" << endl;
+        cout << "First Address: " << a << "." << b << "." << c << ".0" << endl;
+        cout << "Last Address: " << a << "." << b << "." << c << ".255" << endl;
+    }
+
+    else if (a >= 224 && a <= 239)
+    {
+        cout << "\nClass D" << endl;
+        cout << "Range: 224-239" << endl;
+        cout << "Network Mask: Not Applicable" << endl;
+        cout << "Number of Addresses: Multicast" << endl;
+    }
+
+    else if (a >= 240 && a <= 255)
+    {
+        cout << "\nClass E" << endl;
+        cout << "Range: 240-255" << endl;
+        cout << "Network Mask: Not Applicable" << endl;
+        cout << "Number of Addresses: Reserved" << endl;
+    }
+
+    else
+    {
+        cout << "Invalid or Reserved IP Address";
+    }
+
+    return 0;
+}
